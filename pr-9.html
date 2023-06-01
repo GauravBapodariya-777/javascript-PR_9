@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <style>
         .white {
-            height: 100px;
-            width: 100px;
+            height: 50px;
+            width: 50px;
         }
     </style>
 </head>
-
 <body>
+    <label>row :- </label>
+    <input type="number" id="r1"><br><br>
+    <label>column :- </label>
+    <input type="number" id="r2"><br><br>
+    <input type="button" value="submit" onclick="save()">
     <table id="record" border="1"></table>
     <script>
-        var row = parseInt(prompt("Enter Value of row :- "));
-        var column = parseInt(prompt("Enter Value of column :- "));
-        var record = document.getElementById('record');
-        for (var i = 1; i <= row; i++) {
-            var tr = document.createElement('tr');
-            if (i % 2 == 0) {
+        const save = () => {
+            var row = document.getElementById('r1').value;
+            var column = document.getElementById('r2').value;
+            var record = document.getElementById('record');
+            for (var i = 1; i <= row; i++) {
+                var tr = document.createElement('tr');
                 for (j = 1; j <= column; j++) {
                     var td = document.createElement('td');
                     td.setAttribute('class', 'white');
                     tr.appendChild(td);
                 }
-            } else {
-                for (j = 1; j <= column; j++) {
-                    var td = document.createElement('td');
-                    td.setAttribute('class', 'white');
-                    tr.appendChild(td);
-                }
+                record.appendChild(tr);
             }
-            record.appendChild(tr);
         }
     </script>
 </body>
-
 </html>
